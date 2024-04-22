@@ -1,0 +1,23 @@
+{% extends 'farmer/aindex.html' %}
+{% block body  %}
+    <h3>Schemes</h3>
+<form id="form1" name="form1" method="post" action="#">
+    {% csrf_token %}
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Slno</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    {% for i in data %}
+  <tr>
+    <td width="50px">{{ forloop.counter }}</td>
+      <td> {{ i.scheme }}</td>
+      <td> {{ i.discription }}</td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

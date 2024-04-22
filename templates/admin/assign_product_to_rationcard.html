@@ -1,0 +1,37 @@
+{% extends 'admin/aindex.html' %}
+{% block body  %}
+<form id="form1" name="form1" method="post" action="/myapp/admin_add_ration_product_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td width="180px">Card Type</td>
+      <td>
+       <select name="c" class="form-control" required>
+          {% for i in c %}
+
+              <option value="{{ i.id }}">{{ i.district }}</option>
+
+          {% endfor %}
+      </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="180px">Product</td>
+      <td>
+       <select name="p" class="form-control" required>
+          {% for i in p %}
+
+              <option value="{{ i.id }}">{{ i.district }}</option>
+
+          {% endfor %}
+      </select>
+      </td>
+    </tr>
+    <tr >
+        <td></td>
+      <td ><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>
+
+    </tr>
+  </table>
+</form>
+{% endblock %}

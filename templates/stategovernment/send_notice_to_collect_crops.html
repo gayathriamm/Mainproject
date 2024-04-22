@@ -1,0 +1,63 @@
+{% extends 'stategovernment/aindex.html' %}
+{% block body  %}
+<form id="form1" name="form1" method="post" action="/myapp/stategovt_send_notice_to_collect_crops_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td width="180px">Itemname</td>
+      <td>
+      <select name="itemname" class="form-control" required>
+          {% for i in data %}
+          <option value="{{ i.id }}">{{ i.productname }}</option>
+          {% endfor %}
+      </select>
+
+      </td>
+    </tr>
+  <tr>
+      <td>
+          Title
+      </td>
+      <td>
+          <input type="text" name="textfield" id="textfield" class="form-control" required />
+      </td>
+  </tr>
+
+       <tr>
+      <td>
+          Message
+      </td>
+      <td>
+          <textarea class="form-control" required name="message"></textarea>
+      </td>
+  </tr>
+      <tr>
+      <td>
+          Quantity
+      </td>
+      <td>
+          <textarea class="form-control" required name="Quantity"></textarea>
+      </td>
+  </tr>
+      <tr>
+          <td>Price</td>
+          <td>
+              <input type="text" name="price" class="form-control" required>
+          </td>
+      </tr>
+
+       <tr>
+          <td>Last date for apply</td>
+          <td>
+              <input type="date" name="date" class="form-control" required>
+          </td>
+      </tr>
+
+    <tr >
+        <td></td>
+      <td ><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>
+
+    </tr>
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'stategovernment/aindex.html' %}
+{% block body  %}
+<form id="form1" name="form1" method="post" action="/myapp/searchcard/">
+    {% csrf_token %}
+  <table class="pull-left">
+    <tr>
+
+      <td>
+      <input type="text" name="name" id="textfield" placeholder="Search by name" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Slno</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Dob</th>
+
+      <th>Adhar</th>
+      <th>Relation</th>
+
+    </tr>
+    {% for i in data %}
+  <tr>
+    <td width="50px">{{ forloop.counter }}</td>
+      <td> {{ i.name }}</td>
+      <td> {{ i.gender }}</td>
+      <td> {{ i.dob }}</td>
+
+      <td>{{ i.adhar }}</td>
+      <td>{{ i.relation }}</td>
+
+  </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

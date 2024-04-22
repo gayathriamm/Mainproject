@@ -1,0 +1,56 @@
+{% extends 'stategovernment/aindex.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/myapp/state_addsuplycopost/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered">
+
+        <tr>
+            <td>Office Code</td>
+            <td><input type="text" name="name"  class="form-control"  required></td>
+        </tr>
+
+        <tr>
+            <td>Area</td>
+            <td>
+                <select name="area" class="form-control">
+                    {% for i in  data %}
+
+                        <option value="{{ i.id }}">{{ i.area }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email"  class="form-control" required></td>
+        </tr>
+
+        <tr>
+            <td>Estd</td>
+            <td><input type="date" name="estd" max="{{ dt }}"  class="form-control" required></td>
+        </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone"  class="form-control" required pattern="[6789][0-9]{9}" max="9"></td>
+        </tr>
+
+
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="edit" value="Add" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

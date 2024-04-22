@@ -1,0 +1,43 @@
+{% extends 'farmer/aindex.html' %}
+{% block body  %}
+<form id="form1" name="form1" method="post" action="/myapp/state_view_notification_search/">
+    {% csrf_token %}
+  <table class="pull-left">
+    <tr>
+<td>From</td>
+      <td>
+      <input type="date" name="textfield" id="textfield" placeholder="Search by name" class="form-control" /></td><td>To</td>
+      <td>
+      <input type="date" name="textfield2" id="textfield" placeholder="Search by name" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="Search" class="btn btn-success" /></td>
+    </tr>
+  </table>
+<br>
+<br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Slno</th>   <th>Product</th>
+      <th>Title</th>
+
+      <th>Message</th>
+      <th>Price</th>
+      <th>Created</th>
+      <th>LastDate</th>
+      <th>&nbsp;</th>
+    </tr>
+    {% for i in data %}
+  <tr>
+    <td width="50px">{{ forloop.counter }}</td>
+      <td> {{ i.PRODUCT.productname }}</td>
+      <td>{{ i.title }}</td>
+      <td>{{ i.message }}</td>
+      <td>{{ i.price }}</td>
+      <td>{{ i.createddate }}</td>
+      <td>{{ i.lastdate }}</td>
+
+      <td width="50px"><a href="/myapp/farmer_add_items/{{ i.id }}/{{ i.PRODUCT.id }}" class="btn btn-danger">AddItems</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+{% endblock %}

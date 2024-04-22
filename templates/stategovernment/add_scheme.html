@@ -1,0 +1,25 @@
+{% extends 'stategovernment/aindex.html' %}
+{% block body  %}
+<form id="form1" name="form1" method="post" action="/myapp/stategovernemnet_scheme_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td>Title</td>
+        <td><input type="text" name="textfield" id="textfield" class="form-control" required /></td>
+  </tr>
+    <tr>
+      <td>
+          Description
+      </td>
+      <td>
+          <input type="text" name="textfield2" id="textfield" class="form-control" required />
+      </td>
+  </tr>
+    <tr >
+        <td></td>
+      <td ><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>
+
+    </tr>
+  </table>
+</form>
+{% endblock %}

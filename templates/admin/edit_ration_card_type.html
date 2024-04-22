@@ -1,0 +1,18 @@
+{% extends 'admin/aindex.html' %}
+{% block body  %}
+<form id="form1" name="form1" method="post" action="/myapp/admin_add_ration_product_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td width="180px">Product Name</td>
+      <td>
+      <input type="text" name="textfield"  id="textfield" class="form-control" required /></td>
+    </tr>
+    <tr >
+        <td></td>
+      <td ><input type="submit" name="button" id="button" value="Add" class="btn btn-success" /></td>
+
+    </tr>
+  </table>
+</form>
+{% endblock %}

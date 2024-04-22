@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 50px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-container form {
+            width: 350px;
+            margin: 0 auto;
+        }
+        .form-container table {
+            width: 100%;
+        }
+        .form-container td {
+            padding: 10px 0;
+        }
+        .form-container input,
+        .form-container select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .image-container {
+            width: 300px;
+            margin-left: 50px;
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>User Signup</h2>
+            <form action="/myapp/user_signup_post/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td width="180px">Name</td>
+                        <td><input type="text" name="name" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <select name="gender" class="form-control" required>
+                                <option value="Male">Male</option>
+                                <option value="FeMale">FeMale</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dob</td>
+                        <td><input type="date" name="dob" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Choose Photo</td>
+                        <td><input name="file" type="file" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>House Name</td>
+                        <td><input type="text" name="hname" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Place</td>
+                        <td><input type="text" name="place" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Post</td>
+                        <td><input type="text" name="post" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>District</td>
+                        <td><input type="text" name="district" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td><input type="text" name="state" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" name="email" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Aadhar</td>
+                        <td><input type="text" name="adhar" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td><input type="tel" name="phone" pattern="[0-9]{10}" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="password" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="edit" value="Add" class="btn btn-success"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="image-container">
+            <img src="/media/a.jpg" alt="Image" height="950px" width="500px">
+        </div>
+    </div>
+</body>
+</html>

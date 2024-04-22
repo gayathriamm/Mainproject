@@ -1,0 +1,58 @@
+{% extends 'stategovernment/aindex.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/myapp/add_family_member_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered">
+
+        <tr>
+            <td width="180px">Name</td>
+            <td><input type="text" name="name"  class="form-control" required  ></td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td><select name="gender" class="form-control" required>
+                <option value="Male">Male</option>
+                <option value="FeMale">FeMale</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Dob</td>
+            <td>
+                <input type="date" name="dob" class="form-control" required/>
+            </td>
+        </tr>
+
+       <tr>
+        <td>Aadhar</td>
+        <td>
+            <input type="text" name="adhar"  class="form-control" required  >
+        </td>
+    </tr>
+          <tr>
+        <td>Relation</td>
+        <td>
+           <select name="relation" class="form-control">
+               <option value="Son">Son</option>
+               <option value="Daughter">Daughter</option>
+           </select>
+        </td>
+    </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="edit" value="Add" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,148 @@
+{% extends 'stategovernment/aindex.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/myapp/state_add_rationcard_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered">
+
+        <tr>
+            <td width="180px">Name</td>
+            <td><input type="text" name="name"  class="form-control" required  ></td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td><select name="gender" class="form-control" required>
+                <option value="Male">Male</option>
+                <option value="FeMale">FeMale</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td>Dob</td>
+            <td>
+                <input type="date" name="dob" class="form-control" required/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Choose Photo</td>
+            <td>
+                <input name="file" type="file" class="form-control" required>
+            </td>
+        </tr>
+
+    <tr>
+        <td>House Name</td>
+        <td>
+            <input type="text" name="hname"  class="form-control" required  >
+        </td>
+    </tr>
+    <tr>
+        <td>Place</td>
+        <td>
+            <input type="text" name="place"  class="form-control" required  >
+        </td>
+    </tr>
+    <tr>
+        <td>Post</td>
+        <td>
+            <input type="text" name="post"  class="form-control" required  >
+        </td>
+    </tr>
+    <tr>
+        <td>District</td>
+        <td>
+            <input type="text" name="district"  class="form-control" required  >
+        </td>
+    </tr>
+    <tr>
+        <td>State</td>
+        <td>
+            <input type="text" name="state"  class="form-control" required  >
+        </td>
+    </tr>
+     <tr>
+        <td>Email</td>
+        <td>
+            <input type="email" name="email"  class="form-control" required  >
+        </td>
+    </tr>  <tr>
+        <td>Aadhar</td>
+        <td>
+            <input type="text" name="adhar"  class="form-control" required  >
+        </td>
+    </tr>
+     <tr>
+        <td>Phone</td>
+        <td>
+            <input type="tel" name="phone"  class="form-control" required  >
+        </td>
+    </tr>
+     <tr>
+        <td>Religion</td>
+        <td>
+            <select name="religion" class="form-control" required>
+                <option value="Hindu">Hindu</option>
+                <option value="Muslim">Muslim</option>
+                <option value="Christian">Christian</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>Cast</td>
+        <td>
+            <select name="cast" class="form-control" required>
+                <option value="OBC">OBC</option>
+                <option value="GENERAL">GENERAL</option>
+                <option value="OEC">OEC</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>CardType</td>
+        <td>
+            <select class="form-control" name="cardtype" required>
+                {% for i in data %}
+
+                <option value="{{ i.id }}">{{ i.cardtype }}</option>
+
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+
+
+
+        <tr>
+            <td>Area</td>
+            <td>
+                <select name="area" class="form-control">
+                    {% for i in  area %}
+
+                        <option value="{{ i.id }}">{{ i.area }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="edit" value="Add" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

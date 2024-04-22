@@ -1,0 +1,50 @@
+{% extends 'admin/aindex.html' %}
+{% block body  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/myapp/admin_edit_statecenters_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered">
+
+        <tr>
+            <td>Code</td>
+            <td>
+                <input type="hidden" name="id"  class="form-control"  value="{{ data.id }}" >
+                <input type="text" name="name"  class="form-control" value="{{ data.Name }}"  >
+            </td>
+        </tr>
+
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="phone"  class="form-control" value="{{ data.Phone }}"  ></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email"  class="form-control" value="{{ data.Email }}" ></td>
+        </tr>
+
+        <tr>
+            <td>Estd</td>
+            <td><input type="date" name="estd"  class="form-control" value="{{ data.estd }}" ></td>
+        </tr>
+
+        <tr>
+            <td>State</td>
+            <td><input type="text" name="state"  class="form-control" value="{{ data.state }}" ></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" name="edit" value="Edit" class="btn btn-success"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

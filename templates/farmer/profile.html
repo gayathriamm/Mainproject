@@ -1,0 +1,91 @@
+{% extends 'farmer/aindex.html' %}
+{% block body  %}
+<form action="/myapp/user_signup_post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="2">
+                <img src="{{ data.file }}" width="150px" height="150px"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="180px">Name</td>
+            <td>{{ data.name }}</td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>{{ data.gender }}</td>
+        </tr>
+
+        <tr>
+            <td>Dob</td>
+            <td>{{ data.dob }}
+
+            </td>
+        </tr>
+
+
+
+    <tr>
+        <td>House Name</td>
+        <td>
+            {{ data.hname }}
+        </td>
+    </tr>
+    <tr>
+        <td>Place</td>
+        <td>
+            {{ data.place }}
+        </td>
+    </tr>
+    <tr>
+        <td>Post</td>
+        <td>
+          {{ data.post }}
+        </td>
+    </tr>
+    <tr>
+        <td>District</td>
+        <td>
+          {{ data.district }}
+        </td>
+    </tr>
+    <tr>
+        <td>State</td>
+        <td>
+           {{ data.state }}
+        </td>
+    </tr>
+     <tr>
+        <td>Email</td>
+        <td>
+          {{ data.email }}
+        </td>
+    </tr>  <tr>
+        <td>Aadhar</td>
+        <td>
+            {{ data.adhar }}
+        </td>
+    </tr>
+     <tr>
+        <td>Phone</td>
+        <td>
+            {{ data.phone }}
+
+        </td>
+    </tr>
+
+
+
+
+
+
+
+
+
+
+    </table>
+</form>
+{% endblock %}
